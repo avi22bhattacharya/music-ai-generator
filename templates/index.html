@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Jam On</h1>
+        <form action="{{ url_for('process_input') }}" method="post">
+            <label for="user_input">Enter the vibe of music you want:</label>
+            <input type="text" id="user_input" name="user_input" required>
+            <button type="submit">Submit</button>
+        </form>
+        {% if audio_file %}
+        <audio controls>
+            <source src='{{ url_for("static", filename = "musicgen_out.wav") }}' type="audio/wav">
+            Your browser does not support the audio tag.
+        </audio>
+        {% endif %}
+    </div>
+</body>
+
+</html>
