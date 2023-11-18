@@ -28,7 +28,7 @@ def generate_audio(inp):
     )
     audio_values = model.generate(**inputs.to(device), do_sample=True, guidance_scale=3, max_new_tokens=256)
 
-    scipy.io.wavfile.write("/home/avibhattacharya/Desktop/mhacks/musicgen_out.wav", rate=sampling_rate, data=audio_values[0, 0].cpu().numpy())
+    scipy.io.wavfile.write("/home/avibhattacharya/Desktop/mhacks/static/musicgen_out.wav", rate=sampling_rate, data=audio_values[0, 0].cpu().numpy())
 
 @app.route('/')
 def index():
