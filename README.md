@@ -4,7 +4,7 @@
 
 Our platform, **tune.ai**, is an AI-driven music generator capable of creating music based on a specific vibe and/or an artist's style. It's a perfect tool for musicians seeking inspiration, businesses developing unique tones for their brand, podcasters, filmmakers, or anyone who loves music.
 
-We rigorously expanded on Meta Audiocraft's MusicGen model to generate tunes which align with the given vibe. We added an option to choose an artist's style through UM-GPT's API. The user-friendly web interface was created using HTML/CSS/JS for front-end design and Flask for back-end functionality.
+We expanded on Meta Audiocraft's MusicGen model to generate tunes which align with the given vibe. We added an option to choose an artist's style through UM-GPT's API. The user-friendly web interface was created using HTML/CSS/JS for front-end design and Flask for back-end functionality.
 
 ## Installation
 
