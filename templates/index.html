@@ -6,15 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flask Web App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        /* CSS for the loading circle */
+        #loadingSymbol {
+            border: 4px solid #7BE495;
+            border-top: 4px solid #333;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        function showLoading() {
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('loadingSymbol').style.display = 'inline-block';
+        }
+    </script>
 </head>
 
 <body>
     <div class="container">
-        <h1>Jam On</h1>
-        <form action="{{ url_for('process_input') }}" method="post">
-            <label for="user_input">Enter the vibe of music you want:</label>
-            <input type="text" id="user_input" name="user_input" required>
-            <button type="submit">Submit</button>
+        <h1>tune.ai</h1>
+        <form action="{{ url_for('process_input') }}" method="post" onsubmit="showLoading()">
+            <label for="user_input">Describe the vibe:</label>
+            <input type="text" id="user_input" name="user_input" placeholder="Example: 80s pop track with bassy drums and synth">
+            <label for="artist_input">Artist:</label>
+            <input type="text" id="artist_input" name="artist_input" placeholder="Example: Coldplay">
+            <button type="submit" id="submitBtn" class="flashy">Submit</button>
+            <span id="loadingSymbol" class="hidden"></span>
         </form>
         {% if audio_file %}
         <audio controls>
