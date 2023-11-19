@@ -91,7 +91,7 @@ def generate_audio(inp):
     )
     audio_values = model.generate(**inputs.to(device), do_sample=True, guidance_scale=3, max_new_tokens=256)
 
-    scipy.io.wavfile.write("ENTER YOUR FILE PATH", rate=sampling_rate, data=audio_values[0, 0].cpu().numpy())
+    scipy.io.wavfile.write("FILE_PATH/static/tuneai_out.wav", rate=sampling_rate, data=audio_values[0, 0].cpu().numpy())
 
 @app.route('/')
 def index():
@@ -120,7 +120,7 @@ def process_input():
         generate_audio(s)
     else:
         print("invalid input")
-    audio_file_path = "ENTER YOUR FILE PATH"
+    audio_file_path = "FILE_PATH/static/tuneai_out.wav"
     if os.path.exists(audio_file_path):
         # Send the audio file as a response
         return render_template('index.html', audio_file=audio_file_path)
