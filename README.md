@@ -1,13 +1,21 @@
-# Welcome to tune.ai
+# tune.ai
 
-## What it Does
+## Introduction
 
-**tune.ai** is your go-to platform for AI-driven music generation. Whether you're a musician in search of inspiration, a business crafting a unique brand tone, a podcaster setting the mood, or a filmmaker enhancing your project with the perfect soundtrack, **tune.ai** has you covered.
+Our platform, **tune.ai**, is an AI-driven music generator capable of creating music based on a specific vibe and/or an artist's style. It's a perfect tool for musicians seeking inspiration, businesses developing unique tones for their brand, podcasters, filmmakers, or anyone who loves music.
 
-## How We Built It
+We rigorously expanded on Meta Audiocraft's MusicGen model to generate tunes which align with the given vibe. We added an option to choose an artist's style through UM-GPT's API. The user-friendly web interface was created using HTML/CSS/JS for front-end design and Flask for back-end functionality.
 
-We took inspiration from Facebook's MusicGen model and expanded its capabilities. Our AI generates tunes based on the specified vibe or emulates the style of your favorite artists. To achieve this, we harnessed the power of UM-GPT, enhancing the uniqueness and personalization of the music generated. The user-friendly web interface was crafted using HTML/CSS for front-end aesthetics and Flask for robust back-end functionality.
+## Installation
 
-## What's Next for tune.ai
+### Requirements
+pip install transformers
+pip install flask
+pip install openai==0.28
 
-The journey doesn't end here. We're committed to advancing **tune.ai** with the latest in artificial intelligence. Our roadmap includes adding more customization features, incorporating a broader spectrum of musical genres, and elevating the audio quality of our generated tunes. The aim is to make **tune.ai** an indispensable tool for diverse musical needs, providing users with unparalleled music generation experiences. Join us as we continue to shape the future of AI-driven music creation.
+### Usage
+
+1. Clone the repository.
+2. In the file app.py, insert your OpenAI API key in lines 18, and update the lines 94 and 123 with the appropriate directory where the project is located locally.
+3. Run **python3 app.py**
+4. Open the generated link in a browser and enjoy tune.ai!
