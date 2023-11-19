@@ -80,7 +80,7 @@ def query_gpt(artist):
 
 
 def generate_audio(inp):
-    model = MusicgenForConditionalGeneration.from_pretrained("facebook/musicgen-small")
+    global model
     processor = AutoProcessor.from_pretrained("facebook/musicgen-small")
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
     model.to(device)
@@ -93,7 +93,7 @@ def generate_audio(inp):
     )
     audio_values = model.generate(**inputs.to(device), do_sample=True, guidance_scale=3, max_new_tokens=256)
 
-    scipy.io.wavfile.write("/home/avibhattacharya/Desktop/mhacks/static/musicgen_out.wav", rate=sampling_rate, data=audio_values[0, 0].cpu().numpy())
+    scipy.io.wavfile.write("/Users/prakhar/Desktop/music-ai-generator/static/musicgen_out.wav", rate=sampling_rate, data=audio_values[0, 0].cpu().numpy())
 
 @app.route('/')
 def index():
@@ -122,7 +122,7 @@ def process_input():
         generate_audio(s)
     else:
         print("invalid input")
-    audio_file_path = "/home/avibhattacharya/Desktop/mhacks/static/musicgen_out.wav"
+    audio_file_path = "/Users/prakhar/Desktop/music-ai-generator/static/musicgen_out.wav"
     if os.path.exists(audio_file_path):
         # Send the audio file as a response
         return render_template('index.html', audio_file=audio_file_path)
@@ -131,4 +131,5 @@ def process_input():
         return "File not found", 404
 
 if __name__ == '__main__':
+    model = MusicgenForConditionalGeneration.from_pretrained("facebook/musicgen-small")
     app.run(debug=True)
