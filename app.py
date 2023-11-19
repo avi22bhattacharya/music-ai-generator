@@ -15,7 +15,7 @@ app = Flask(__name__)
 def query_gpt(artist):
     import openai
     openai.api_type = "azure"
-    openai.api_key = 'f8590d0a2d77474d80246e2231565a49'
+    openai.api_key = 'ENTER YOUR KEY HERE'
 
     openai.api_base = 'https://api.umgpt.umich.edu/azure-openai-api/ptu'
     openai.api_version = '2023-03-15-preview'
@@ -91,7 +91,7 @@ def generate_audio(inp):
     )
     audio_values = model.generate(**inputs.to(device), do_sample=True, guidance_scale=3, max_new_tokens=256)
 
-    scipy.io.wavfile.write("/Users/prakhar/Desktop/music-ai-generator/static/musicgen_out.wav", rate=sampling_rate, data=audio_values[0, 0].cpu().numpy())
+    scipy.io.wavfile.write("ENTER YOUR FILE PATH", rate=sampling_rate, data=audio_values[0, 0].cpu().numpy())
 
 @app.route('/')
 def index():
@@ -120,7 +120,7 @@ def process_input():
         generate_audio(s)
     else:
         print("invalid input")
-    audio_file_path = "/Users/prakhar/Desktop/music-ai-generator/static/musicgen_out.wav"
+    audio_file_path = "ENTER YOUR FILE PATH"
     if os.path.exists(audio_file_path):
         # Send the audio file as a response
         return render_template('index.html', audio_file=audio_file_path)
