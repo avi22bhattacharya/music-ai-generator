@@ -1,44 +1,143 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #007958;
+    background: linear-gradient(to bottom, #222, #333);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
+    width: 80%;
     max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #36454F;
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
 h1 {
-    color: #ffffff;
+    color: #7BE495;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font family */
+    font-size: 3rem; /* Increased font size */
+    font-weight: 500;
 }
 
 form {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
-    color: #fff;
-    /* label text color */
+    margin-bottom: 20px;
+    color: #7BE495; /* Minty green label color */
+    font-weight: bold;
 }
 
 input {
-    width: 100%;
-    padding: 8px;
+    width: calc(100% - 22px);
+    padding: 15px;
     box-sizing: border-box;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    border: 2px solid #7BE495; /* Minty green border */
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent input background */
+    color: #fff;
 }
 
 button {
-    background-color: #007958;
-    color: #fff;
-    padding: 10px 15px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem; /* Adjusted font size */
+    background-color: #7BE495; /* Minty green button color */
+    color: #222;
+    padding: 15px 25px;
     border: none;
+    border-radius: 10px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5DAD7F; /* Darker green on hover */
+    color: #fff;
+}
+
+/* Flashy animation for the button */
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 10px #7BE495;
+    }
+    50% {
+        box-shadow: 0 0 20px #7BE495, 0 0 30px #5DAD7F;
+    }
+    100% {
+        box-shadow: 0 0 10px #7BE495;
+    }
+}
+
+button.flashy {
+    animation: glowing 1.5s infinite; /* Apply the animation */
+}
+
+/* Existing styles */
+
+/* Style for audio controls */
+audio {
+    width: 100%;
+    margin-top: 20px;
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    /* border-radius: 10px; 
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  */
+}
+
+/* Style for the entire audio control panel */
+audio::-webkit-media-controls-panel {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark background for the entire audio control block */
+    border-radius: 5px; /* Rounded corners for the block */
+}
+
+/* Style for the audio progress bar */
+audio::-webkit-media-controls-timeline {
+    color: #7BE495; /* Progress bar color */
+    /* height: 5px; 
+    border-radius: 5px;  */
+}
+
+/* Style for the time display */
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+    color: #7BE495; /* Time display color */
+    font-weight: bold; /* Bold text */
+    text-shadow: none;
+}
+
+/* Style for the volume slider */
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-volume-slider {
+    color: #7BE495; /* Volume slider background color */
+    /* height: 5px; 
+    border-radius: 5px;  */
+}
+
+/* Style for the audio control buttons */
+/* audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-volume-slider {
+    filter: invert(1); 
+*/
+
+/* Remove default focus outline */
+audio:focus {
+    outline: none;
 }
