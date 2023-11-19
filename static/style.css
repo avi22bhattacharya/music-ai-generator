@@ -137,7 +137,7 @@ audio::-webkit-media-controls-volume-slider {
     filter: invert(1); 
 */
 
-/* Remove default focus outline */
+
 audio:focus {
     outline: none;
 }
