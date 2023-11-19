@@ -10,7 +10,9 @@ We rigorously expanded on Meta Audiocraft's MusicGen model to generate tunes whi
 
 ### Requirements
 pip install transformers
+
 pip install flask
+
 pip install openai==0.28
 
 ### Usage
